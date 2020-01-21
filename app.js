@@ -18,6 +18,7 @@ app.get("/api/v1/players", (request, response) => {
       database("players")
         .then(players => {
           if (players.length === 0) {
+            console.log('hi')
             return response.status(404).json({error: `Could not find player with name ${request.query.name}`})
           } else {
             response.status(200).json(players);
